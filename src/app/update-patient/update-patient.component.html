@@ -1,0 +1,38 @@
+
+
+<div class="container">
+    <h4 class="font-weight-light" style="text-align: center"><em>Ajouter un patient dans la base de donnée</em></h4>
+    <form>
+        <div class="form-group">
+            <label> Nom </label> <br>
+            <input name="nomPat" type="text" class="form-control" id="nomPatient" [(ngModel)]="patientFind.nomPatient">
+            <!--[(ngModel)]="ObjetdansComponent.Attributdelobjet" : permet de relier les info saisis au variable declarer dans create-hopital.component.ts pour stocker-->
+        </div>
+
+        <div class="form-group">
+            <label> Prénom </label> <br>
+            <input name="prenomPat" type="text" class="form-control" id="prenomPatient" [(ngModel)]="patientFind.prenomPatient">
+        </div>
+
+        <div class="form-group">
+            <label> Date de naissance </label> <br>
+            <input name="DOB" type="text" class="form-control" id="dateDeNaissance" [(ngModel)]="patientFind.dateDeNaissance">
+        </div>
+
+        <div class="form-group">
+            <label> Pathologie </label> <br>
+            <input name="patho" type="text" class="form-control" id="pathologie" [(ngModel)]="patientFind.pathologie">
+        </div>
+
+        <div class="form-group">
+            <label> Nom du médecin traitant </label> <br>
+            <select class="form-control" name="medecinTraitant">
+                <option *ngFor="let listeMed of listeMedecins" [ngValue]="listeMed">{{listeMed.prenomMedecin}} {{listeMed.nomMedecin}}</option>
+            </select>            
+        </div>
+
+        <button type="submit" class="btn btn-success" (click)="modifPatient()" >Envoyer vers la base de donnée</button>
+        <!--(click)="" : permet d'appeler la methode dans components.ts pour creer un patient -->
+        <!--[routerLink] :  renvoie à une autre page (indiquée par l'URI)-->
+    </form>
+</div>

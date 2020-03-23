@@ -1,0 +1,32 @@
+
+
+<div class="container">
+    <h4 class="font-weight-light" style="text-align: center"><em>Ajouter un médecin dans la base de donnée</em></h4>
+    <form>
+        <div class="form-group">
+            <label> Nom </label> <br>
+            <input name="nomMed" type="text" class="form-control" id="nomMedecin" placeholder="Saisir le nom du médecin" [(ngModel)]="newMedecin.nomMedecin">
+            <!--[(ngModel)]="ObjetdansComponent.Attributdelobjet" : permet de relier les info saisis au variable declarer dans create-hopital.component.ts pour stocker-->
+        </div>
+
+        <div class="form-group">
+            <label> Prénom </label> <br>
+            <input name="prenomMed" type="text" class="form-control" id="prenomMedecin" placeholder="Saisir le prénom du médecin" [(ngModel)]="newMedecin.prenomMedecin">
+        </div>
+
+        <div class="form-group">
+            <label> Adresse </label> <br>
+            <input name="adresseMed" type="text" class="form-control" id="adresseMedecin" placeholder="Saisir l'adresse du médecin" [(ngModel)]="newMedecin.adresseMedecin">
+        </div>
+
+        <div class="form-group">
+            <label> Nom de l'hôpital d'affectation </label> <br>
+            <select class="form-control" name="nomHopital" [(ngModel)]="newMedecin.hopital">
+                <option *ngFor="let hopital of listHopitaux" [ngValue]="hopital">{{hopital.nomHopital}}</option>
+            </select>            
+        </div>
+
+        <button type="submit" class="btn btn-warning" (click)="createNewMed()">Envoyer vers la base de donnée</button>
+        <!--(click)="" : permet d'appeler la methode dans component.ts pour creer un medecin -->
+    </form>
+</div>

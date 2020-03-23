@@ -1,0 +1,21 @@
+
+
+<div class="container">
+    <h4 class="font-weight-light" style="text-align: center"><em>Modifier les données d'un hôpital </em></h4>
+    <form>
+        <div class="form-group">
+            <label> Nom de votre hôpital </label> <br>
+            <input name="nomHop" type="text" class="form-control" id="nomHopital" [(ngModel)]="hopital.nomHopital">
+            <!--[(ngModel)]="ObjetdansComponent.Attributdelobjet" : permet de relier les info saisis au variable declarer dans create-hopital.component.ts pour stocker-->
+        </div>
+
+        <div class="form-group">
+            <label> Adresse de votre hôpital </label> <br>
+            <input name="adresseHop" type="text" class="form-control" id="adresseHopital"  [(ngModel)]="hopital.adresseHopital">
+        </div>
+
+        <button type="submit" class="btn btn-danger" (click)="modifHopital(hopital.idHopital , hopital)">Valider les modifications</button>
+        <!--(click)="" : permet d'appeler la methode de creation d'un hopital -->
+    </form>
+</div>
+

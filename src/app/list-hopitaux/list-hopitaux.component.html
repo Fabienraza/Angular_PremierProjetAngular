@@ -1,0 +1,29 @@
+<!--***********************************-->
+<!--PARTIE HTML / PAGE WEB DU PROGRAMME-->
+<!--***********************************-->
+
+<!--Tableau contenant la liste des hopitaux present dans la base de donnee-->
+<div class="container">
+    <h1 class="display-4" style="text-align: center">Liste des Hopitaux</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <th>id Hopital</th>
+            <th>Nom</th>
+            <th>Adresse</th>
+            <th></th>
+
+        </thead>
+        <tbody>
+            <tr class="table-info" *ngFor = "let unHopital of listHopitaux">
+                <td>{{unHopital.idHopital}}</td>
+                <td>{{unHopital.nomHopital}}</td>
+                <td>{{unHopital.adresseHopital}}</td>
+                <td style="text-align: right"> 
+                    <button type="button" class="btn btn-danger" (click)="deleteOneHopital(unHopital.idHopital)"> <i class="fa fa-trash-o"> Supprimer </i> </button>
+                    
+                    <a [routerLink]="['/hopital/update/'+ unHopital.idHopital]" class="btn btn-warning"> <i class="fa fa-cogs"> Modifier </i> </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,31 @@
+
+
+<div class="container">
+    <h4 class="font-weight-light" style="text-align: center"><em>Ajouter un médecin dans la base de donnée</em></h4>
+    <form>
+        <div class="form-group">
+            <label> Nom </label> <br>
+            <input name="nomMed" type="text" class="form-control" id="nomMedecin"  [(ngModel)]="docteur.nomMedecin">
+
+        </div>
+
+        <div class="form-group">
+            <label> Prénom </label> <br>
+            <input name="prenomMed" type="text" class="form-control" id="prenomMedecin" [(ngModel)]="docteur.prenomMedecin">
+        </div>
+
+        <div class="form-group">
+            <label> Adresse </label> <br>
+            <input name="adresseMed" type="text" class="form-control" id="adresseMedecin" [(ngModel)]="docteur.adresseMedecin">
+        </div>
+
+        <div class="form-group">
+            <label> Nom de l'hôpital d'affectation </label> <br>
+            <select class="form-control" name="nomHopital" [(ngModel)]="docteur.hopital">
+                <option *ngFor="let liste of listeHopitaux" [ngValue]="liste">{{liste.nomHopital}}</option>
+            </select>            
+        </div>
+
+        <button type="submit" class="btn btn-warning" (click)="modifMedecin(docteur.idMedecin , docteur)">Valider la modification</button>  
+    </form>
+</div>

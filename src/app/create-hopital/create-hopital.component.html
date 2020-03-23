@@ -1,0 +1,19 @@
+
+
+<div class="container">
+    <h4 class="font-weight-light" style="text-align: center"><em>Ajouter un hôpital dans la base de donnée</em></h4>
+    <form>
+        <div class="form-group">
+            <label> Nom de votre hôpital </label> <br>
+            <input name="nomHop" type="text" class="form-control" id="nomHopital" aria-describedby="emailHelp" placeholder="Saisir le nom de l'hopital" [(ngModel)]="newHopital.nomHopital">
+            <!--[(ngModel)]="ObjetdansComponent.Attributdelobjet" : permet de relier les info saisis au variable declarer dans create-hopital.component.ts pour stocker-->
+        </div>
+        <div class="form-group">
+            <label> Adresse de votre hôpital </label> <br>
+            <input name="adresseHop" type="text" class="form-control" id="adresseHopital" placeholder="Saisir l'adresse de l'hopital" [(ngModel)]="newHopital.adresseHopital">
+        </div>
+
+        <button type="submit" class="btn btn-danger" (click)="createHopital()">Envoyer vers la base de donnée</button>
+        <!--(click)="" : permet d'appeler la methode de creation d'un hopital -->
+    </form>
+</div>

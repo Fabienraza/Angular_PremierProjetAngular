@@ -1,0 +1,36 @@
+
+
+<div class="container">
+    <h1 class="display-4" style="text-align: center">Liste des Patients</h1>
+    <table class="table">
+        <thead class="thead-dark"> 
+            <th>id Patient</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Date de naissance</th>
+            <th>Pathologie</th>
+            <th>id medecin traitant</th>
+            <th colspan="2"></th>
+        </thead>
+
+        <tbody>
+            <tr class="table-info" *ngFor = "let p of listePatients">
+                <td>{{p.idPatient}}</td>
+                <td>{{p.nomPatient}}</td>
+                <td>{{p.prenomPatient}}</td>
+                <td>{{p.dateDeNaissance}}</td>
+                <td>{{p.pathologie}}</td>
+                <td>{{p?.medecin?.idMedecin}}</td>
+                <!-- ? : indique que si l'attibut existe, il l'affiche, NULL sinon -->
+
+                <td style="text-align: center"> 
+                    <button type="button" class="btn btn-danger" (click)="deletePatient(p.idPatient)"> <i class="fa fa-trash-o"> Supprimer </i> </button>
+                </td>
+                
+                <td style="text-align: center"> 
+                    <a [routerLink]="['/patient/update/'+ p.idPatient]" class="btn btn-warning"> <i class="fa fa-cogs"> Modifier </i> </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
