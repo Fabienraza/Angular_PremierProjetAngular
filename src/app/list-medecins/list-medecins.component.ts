@@ -50,7 +50,7 @@ export class ListMedecinsComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         // Instruction pour supprimer un medecin
-        this.medecinservice.deleteMedecin(idMed).subscribe()
+        this.medecinservice.deleteMedecin(idMed).subscribe();
 
         swalWithBootstrapButtons.fire(
           'Supprimer!',
