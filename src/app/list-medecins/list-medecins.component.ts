@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 import { Medecin } from '../models/medecin';
 import { MedecinService } from '../services/medecin.service';
 
+// import biblio pour les message d'alerte utilisateur
+import Swal from 'sweetalert2'
+
+
 
 @Component({
   selector: 'app-list-medecins',
@@ -26,12 +30,45 @@ export class ListMedecinsComponent implements OnInit {
 
   // instruction pour supprimer un mededin de la base de donnée
   deleteMed(idMed : number) {
-    this.medecinservice.deleteMedecin(idMed).subscribe(
-      data => {
-        console.log("suppression reussi")
-        console.log(data);
+
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+    
+    swalWithBootstrapButtons.fire({
+        title: 'Est-vous sûr de vouloir supprimer?',
+        text: "Cette action est irreversible!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Oui, supprimer!',
+        cancelButtonText: 'Annuler!',
+        reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        // Instruction pour supprimer un medecin
+        this.medecinservice.deleteMedecin(idMed).subscribe()
+
+        swalWithBootstrapButtons.fire(
+          'Supprimer!',
+          'Les donnés du médecin ont bien été supprimés.',
+          'success'
+        )
+
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+
+        swalWithBootstrapButtons.fire(
+          'Annulation',
+          'No stress vos données sont intacts :)',
+          'error'
+        )
+
       }
-    )
+    })
+
   }
 
 

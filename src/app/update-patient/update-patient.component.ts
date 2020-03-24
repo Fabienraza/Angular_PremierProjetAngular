@@ -25,8 +25,9 @@ export class UpdatePatientComponent implements OnInit {
 
   constructor(private patientservice : PatientService , private medecinservice : MedecinService , private route : ActivatedRoute) { 
 
-    // Recuperation de l'id saisi dans l'URL
-    this.idP = parseInt(this.route.snapshot.paramMap.get('idPatient'));
+    // Recuperation de l'id saisi dans l'URL 
+    this.idP = parseInt(this.route.snapshot.paramMap.get('idP'));
+        // 'idP' : correspond au parametre saisi dans l'URL present dans "app-routine.module.ts"
 
   }
 
@@ -43,11 +44,24 @@ export class UpdatePatientComponent implements OnInit {
   }
 
 
+
+  // Methode pour comparer les medecins affectés à un patient
+      // Utilisé dans la partie modification des infos patients
+      // Affiche les infos affiché de base dans le menu select
+  compareHop(a1:Medecin , a2:Medecin) {
+    return a1 && a2 ? a1.idMedecin === a2.idMedecin : a1 === a2;
+  }
+
+
+
   ngOnInit(): void {
+
+    console.log(this.idP)
+
     // Recuperation de la liste des médecins 
     this.medecinservice.getAll().subscribe(
       data => {
-        console.log("recuperation donnees du patient via id");
+        console.log("recuperation liste des medecins OK");
         this.listeMedecins = data;
       }
     )
@@ -56,7 +70,7 @@ export class UpdatePatientComponent implements OnInit {
     // Recuperation des donnes patient suivant son id
     this.patientservice.getPatientById(this.idP).subscribe(
       data => {
-        console.log("recuperation id de l'URL");
+        console.log("recuperation donnees du patient via id OK");
         this.patientFind = data;
       }
     )

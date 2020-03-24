@@ -26,7 +26,7 @@
 
         <div class="form-group">
             <label> Nom du médecin traitant </label> <br>
-            <select class="form-control" name="medecinTraitant">
+            <select class="form-control" name="medecinTraitant" [compareWith]="compareHop">
                 <option *ngFor="let listeMed of listeMedecins" [ngValue]="listeMed">{{listeMed.prenomMedecin}} {{listeMed.nomMedecin}}</option>
             </select>            
         </div>

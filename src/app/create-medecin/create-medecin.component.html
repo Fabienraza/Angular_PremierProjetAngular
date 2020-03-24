@@ -22,6 +22,7 @@
         <div class="form-group">
             <label> Nom de l'hôpital d'affectation </label> <br>
             <select class="form-control" name="nomHopital" [(ngModel)]="newMedecin.hopital">
+                <option [disabled]="true" value=""> Choisir l'hôpital d'affectation</option>
                 <option *ngFor="let hopital of listHopitaux" [ngValue]="hopital">{{hopital.nomHopital}}</option>
             </select>            
         </div>

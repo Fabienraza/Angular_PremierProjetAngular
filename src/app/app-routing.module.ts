@@ -23,9 +23,10 @@ import { UpdatePatientComponent } from './update-patient/update-patient.componen
 
 // 2- Création de la route qui va etre reliée le WEB-SERVICE JAVA et la page html
 const routes: Routes = [
-            //////////////////////////////////////
-            // ROUTE POUR VISUALISER LES LISTES //
-            /////////////////////////////////////
+          //////////////////////////////////////
+          // ROUTE POUR VISUALISER LES LISTES //
+          /////////////////////////////////////
+
   //Route pour afficher la liste des hopitaux
   {
     path  : "hopital/all",
@@ -41,9 +42,11 @@ const routes: Routes = [
     path : "patient/all",
     component : ListPatientsComponent
   },
+
           ///////////////////////////////////////////////////////////
           // ROUTE POUR AJOUTER UN ELEMENT DANS LA BASE DE DONNEE //
           //////////////////////////////////////////////////////////
+
   //Route pour ajouter un hopital dans la BD
   {
     path : "hopital/add",
@@ -63,9 +66,10 @@ const routes: Routes = [
           ///////////////////////////////////////////////////////////
           // ROUTE POUR MODIFIER UN ELEMENT DANS LA BASE DE DONNEE //
           //////////////////////////////////////////////////////////
+
   //Route pour modifier un hopital dans la BD
   {
-    path :"hopital/update/:id",
+    path :"hopital/update/:idHop",
     component : UpdateHopitalComponent
   },
   //Route pour modifier un medecin dans la base de donnée

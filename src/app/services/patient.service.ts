@@ -37,8 +37,8 @@ export class PatientService {
 
   
   //Methode pour rechercher un patient à partir de son id
-  getPatientById(idP:number){
-    return this.http.get<Patient>('http://localhost:8080/patient/find/'+idP).pipe();
+  getPatientById(idPatient:number){
+    return this.http.get<Patient>('http://localhost:8080/patient/find/'+idPatient).pipe();
   }
 
 

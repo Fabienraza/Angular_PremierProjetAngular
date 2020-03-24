@@ -22,7 +22,7 @@ export class UpdateHopitalComponent implements OnInit {
 
   constructor(private hopitalservice : HopitalService , private route : ActivatedRoute) {
     // Recuperation de l'iD saisi sur l'URL 
-    this.idHopitalURL = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.idHopitalURL = parseInt(this.route.snapshot.paramMap.get('idHop'));
         //'id': correspond au paramètre saisi dans la route.
         // this.route.snapshot.paramMap.get() : retourne un objet de type String, d'ou la necessite de le convertir en un entier.
   }

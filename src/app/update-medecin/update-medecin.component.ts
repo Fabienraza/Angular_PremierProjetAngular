@@ -44,6 +44,16 @@ export class UpdateMedecinComponent implements OnInit {
     )
   }
 
+  
+
+
+  // Methode pour comparer les hopitaux d'un medecin
+  compareHop(a1:Hopital , a2:Hopital) {
+    return a1 && a2 ? a1.idHopital===a2.idHopital : a1===a2;
+  }
+
+
+
 
   ngOnInit(): void {
 

@@ -21,7 +21,7 @@
 
         <div class="form-group">
             <label> Nom de l'hôpital d'affectation </label> <br>
-            <select class="form-control" name="nomHopital" [(ngModel)]="docteur.hopital">
+            <select class="form-control" name="nomHopital" [(ngModel)]="docteur.hopital" [compareWith]="compareHop">
                 <option *ngFor="let liste of listeHopitaux" [ngValue]="liste">{{liste.nomHopital}}</option>
             </select>            
         </div>
